@@ -5,8 +5,6 @@ Clayton McEntire, Andrew Farmer, Cameron Burdine
 
 import networkx as nx ##This will be what we will use for the graph
 import dfs_path as dfs
-import bfs_paths as bfs
-import dijkstraAlgo as dij
 
 ###The following code will need to be deleted, its purpose is to figure out how
 ###networkx works
@@ -78,4 +76,7 @@ v = dfs.dfs_path(A, "A", "J")
 print("DFS PATH: " + str(v))
 
 
+
 nx.draw(A, with_labels=True, font_weight='bold')
+#nx.draw_shell(A, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
+
