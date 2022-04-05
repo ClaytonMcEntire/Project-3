@@ -3,7 +3,7 @@ Project 3
 Clayton McEntire, Andrew Farmer, Cameron Burdine
 """
 
-import networkx as nx ##This will be what we will use for the graph
+import networkx as nx ##This will be what we will use for the graph; https://networkx.org/documentation/stable/tutorial.html
 import dfs_path as dfs
 
 
