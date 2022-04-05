@@ -72,6 +72,8 @@ A.add_edge("L", "P")
 ##print(list(A.nodes))
 ##print(list(A.edges))
 
+
+##Link to understanding DFS https://www.programiz.com/dsa/graph-dfs
 v = dfs.dfs_path(A, "A", "J")
 print("DFS PATH: " + str(v))
 
