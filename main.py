@@ -6,30 +6,9 @@ Clayton McEntire, Andrew Farmer, Cameron Burdine
 import networkx as nx ##This will be what we will use for the graph
 import dfs_path as dfs
 
-###The following code will need to be deleted, its purpose is to figure out how
-###networkx works
-
-# G = nx.Graph() ##creates a new graph
-# H = nx.Graph()
-# H.add_node(10)
-# G.add_node(2)
-# G.add_node(1)##adds the node 1 to graph G
-# H.add_nodes_from(G)##This should add all the nodes from G to H
-# H.add_edge(10,1)
-# H.add_edge(10,2)
-# H.add_edge(1,2)
-
-# ##print(H)##prints the number of nodes and edges
-
-# print(list(H.nodes))##prints the nodes in a list
-# print(list(H.edges))##prints the edges in a list of sets
-
-# H.remove_node(1)
-
-# print(list(H.nodes))
-# print(list(H.edges))
 
 ###The Following code should set up the graph for question1
+### NROMAL GRAPH 
 A = nx.Graph()
 A.add_node("A")
 A.add_node("B")
@@ -69,16 +48,55 @@ A.add_edge("K", "L")
 A.add_edge("L", "P")
 
 
-##print(list(A.nodes))
-##print(list(A.edges))
-
-
 ##Link to understanding DFS https://www.programiz.com/dsa/graph-dfs
+
+
+## a) Starting from any vertex, can DFS and BFS find all connected components of an
+##undirected graph? 
+
+## b) Can both BFS and DFS determine if there is a path between two given nodes?
+
+## c)There is a path between two vertices x and y. If started from x, do DFS and BFS always
+## find exactly the same path? 
+
+# DFS 
 v = dfs.dfs_path(A, "A", "J")
 print("DFS PATH: " + str(v))
 
+# BFS
 
-
+# Draw Visual Graph
 nx.draw(A, with_labels=True, font_weight='bold')
 #nx.draw_shell(A, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
 
+
+# DIRECTED GRAPH 
+
+
+
+
+
+
+## a) Use an application to find the strongly connected components of the digraph;
+## b) Draw the digraph as a ‘meta graph’ of its strongly connected components in your project
+##    report; and then
+## c) Represent the ‘meta graph’ as a DAG and linearize it in its topological order. 
+
+
+# WEIGHTED UNDIRECTED GRAPH 
+
+
+
+
+
+## a) Write an application that applies Dijkstra’s algorithm to produce the shortest path tree for
+##    a weighted graph with a given starting node. Test and verify your program with the given
+##    graph starting with node A;
+
+## b) Write a program that produces a minimum spanning tree for a connected weighted graph.
+##    Test your program with the given graph above; 
+
+## c) Are a shortest path tree and a minimum spanning tree usually the same?
+
+## d) If the graph has an edge with a negative weight, can you apply Dijkstra’s algorithm to
+##    find a shortest path tree? 
