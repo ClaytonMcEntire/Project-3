@@ -5,7 +5,7 @@ Clayton McEntire, Andrew Farmer, Cameron Burdine
 
 import networkx as nx ##This will be what we will use for the graph; https://networkx.org/documentation/stable/tutorial.html
 import dfs_path as dfs
-
+import matplotlib.pyplot as plt
 
 ###The Following code should set up the graph for question1
 ### NROMAL GRAPH 
@@ -66,17 +66,34 @@ print("DFS PATH: " + str(v))
 # BFS
 
 # Draw Visual Graph
+plt.figure(1)
 nx.draw(A, with_labels=True, font_weight='bold')
 #nx.draw_shell(A, nlist=[range(5, 10), range(5)], with_labels=True, font_weight='bold')
 
 
 # DIRECTED GRAPH 
+DG = nx.DiGraph()
+DG.add_edge(4,2)
+DG.add_edge(4,12)
+DG.add_edge(4,1)
+DG.add_edge(1,3)
+DG.add_edge(3,2)
+DG.add_edge(3,5)
+DG.add_edge(5,6)
+DG.add_edge(5,8)
+DG.add_edge(6,8)
+DG.add_edge(6,7)
+DG.add_edge(6,10)
+DG.add_edge(7,10)
+DG.add_edge(10,9)
+DG.add_edge(10,11)
+DG.add_edge(9,11)
+DG.add_edge(8,10)
+DG.add_edge(8,9)
+DG.add_edge(11,12)
 
-
-
-
-
-
+plt.figure(2)
+nx.draw(DG, with_labels=True, font_weight='bold')
 ## a) Use an application to find the strongly connected components of the digraph;
 ## b) Draw the digraph as a ‘meta graph’ of its strongly connected components in your project
 ##    report; and then
