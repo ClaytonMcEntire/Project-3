@@ -5,6 +5,7 @@ Clayton McEntire, Andrew Farmer, Cameron Burdine
 
 import networkx as nx ##This will be what we will use for the graph; https://networkx.org/documentation/stable/tutorial.html
 import dfs_path as dfs
+import bfs_paths as bfs
 import matplotlib.pyplot as plt
 
 
@@ -61,11 +62,14 @@ A.add_edge("L", "P")
 ## find exactly the same path? 
 
 # DFS 
-v = dfs.dfs_path(A, "A", "J")
+v = dfs.dfs_path(A, "A", "G")
 print("DFS PATH: " + str(v))
 
 # BFS
-
+paths = nx.bfs_predecessors(A, source='A')
+paths = dict(paths)
+print("BFS PATH: ")
+print(paths)
 # Draw Visual Graph
 plt.figure(1)
 nx.draw(A, with_labels=True, font_weight='bold')
