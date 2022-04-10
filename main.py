@@ -9,6 +9,7 @@ import bfs_paths as bfs
 import matplotlib.pyplot as plt
 
 
+
 ###The Following code should set up the graph for question1
 ### NROMAL GRAPH 
 A = nx.Graph()
@@ -66,10 +67,11 @@ v = dfs.dfs_path(A, "A", "G")
 print("DFS PATH: " + str(v))
 
 # BFS
-paths = nx.bfs_predecessors(A, source='A')
-paths = dict(paths)
-print("BFS PATH: ")
+paths = nx.bfs_edges(A, "A")
+paths= list(paths)
+print("BFS: ")
 print(paths)
+
 # Draw Visual Graph
 plt.figure(1)
 nx.draw(A, with_labels=True, font_weight='bold')
