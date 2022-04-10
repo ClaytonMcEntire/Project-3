@@ -7,6 +7,7 @@ import networkx as nx ##This will be what we will use for the graph; https://net
 import dfs_path as dfs
 import matplotlib.pyplot as plt
 
+
 ###The Following code should set up the graph for question1
 ### NROMAL GRAPH 
 A = nx.Graph()
@@ -73,33 +74,68 @@ nx.draw(A, with_labels=True, font_weight='bold')
 
 # DIRECTED GRAPH 
 DG = nx.DiGraph()
-DG.add_edge(4,2)
-DG.add_edge(4,12)
-DG.add_edge(4,1)
-DG.add_edge(1,3)
-DG.add_edge(2,1)
-DG.add_edge(3,2)
-DG.add_edge(3,5)
-DG.add_edge(5,6)
-DG.add_edge(5,8)
-DG.add_edge(6,8)
-DG.add_edge(6,7)
-DG.add_edge(6,10)
-DG.add_edge(7,10)
-DG.add_edge(10,9)
-DG.add_edge(10,11)
-DG.add_edge(9,11)
-DG.add_edge(9,5)
-DG.add_edge(8,10)
-DG.add_edge(8,9)
-DG.add_edge(11,12)
+DG.add_edge("4","2")
+DG.add_edge("4","12")
+DG.add_edge("4","1")
+DG.add_edge('1','3')
+DG.add_edge('2','1')
+DG.add_edge('3','2')
+DG.add_edge('3','5')
+DG.add_edge('5','6')
+DG.add_edge('5','8')
+DG.add_edge('6','8')
+DG.add_edge('6','7')
+DG.add_edge('6','10')
+DG.add_edge('7','10')
+DG.add_edge('10','9')
+DG.add_edge('10','11')
+DG.add_edge('9','11')
+DG.add_edge('9','5')
+DG.add_edge('8','10')
+DG.add_edge('8','9')
+DG.add_edge('11','12')
 
 plt.figure(2)
 nx.draw(DG, with_labels=True, font_weight='bold')
+
 ## a) Use an application to find the strongly connected components of the digraph;
+
+## Finds the strongly connected components
+scc=list(nx.strongly_connected_components(DG))
+
+scc2 = list(nx.kosaraju_strongly_connected_components(DG))
+
+print("The Strongly Connected components are")
+print(str(scc))
+print("The Strongly Connected components are")
+print(str(scc2))
 ## b) Draw the digraph as a ‘meta graph’ of its strongly connected components in your project
 ##    report; and then
+
+##Meta Graph of strongly connected components 
+MG = nx.DiGraph()
+MG.add_edge('11','12')
+MG.add_edge('4','12')
+MG.add_edge('4','2,3,1')
+MG.add_edge('2,3,1','10,7,5,6,8,9')
+MG.add_edge('10,7,5,6,8,9','11')
+
+plt.figure(3)
+nx.draw(MG, with_labels = True, font_weight='bold')
+
+
 ## c) Represent the ‘meta graph’ as a DAG and linearize it in its topological order. 
+
+li = list(reversed(list(nx.topological_sort(MG))))
+print("list2"+str(li))
+
+ans = nx.is_directed_acyclic_graph(MG)
+print("ans"+str(ans))
+
+
+li2 = list(nx.topological_sort(nx.line_graph(MG)))
+
+print("sort"+str(li2))
 
 
 # WEIGHTED UNDIRECTED GRAPH 
