@@ -187,7 +187,7 @@ nx.draw(WG, with_labels=True, font_weight='bold')
 ##    graph starting with node A;
 x = nx.dijkstra_path(WG, "A", "G")
 x = list(x)
-print(x)
+print("\n"+str(x))
 
 ## b) Write a program that produces a minimum spanning tree for a connected weighted graph.
 ##    Test your program with the given graph above; 
