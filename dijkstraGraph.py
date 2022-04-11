@@ -1,0 +1,38 @@
+import networkx as nx
+import dijkstraAlgo as dg
+
+WG = nx.Graph()
+WG.add_node("A")
+WG.add_node("B")
+WG.add_node("C")
+WG.add_node("D")
+WG.add_node("E")
+WG.add_node("F")
+WG.add_node("G")
+WG.add_node("H")
+WG.add_node("I")
+
+WG.add_edge("A", "B", weight=22)
+WG.add_edge("A", "C", weight=9)
+WG.add_edge("A", "D", weight=12)
+WG.add_edge("B", "C", weight=35)
+WG.add_edge("B", "F", weight=36)
+WG.add_edge("B", "H", weight=34)
+WG.add_edge("C", "F", weight=42)
+WG.add_edge("C", "E", weight=65)
+WG.add_edge("C", "D", weight=4)
+WG.add_edge("D", "E", weight=33)
+WG.add_edge("D", "I", weight=30)
+WG.add_edge("E", "F", weight=18)
+WG.add_edge("E", "G", weight=23)
+WG.add_edge("F", "H", weight=24)
+WG.add_edge("F", "G", weight=39)
+WG.add_edge("G", "H", weight=25)
+WG.add_edge("G", "I", weight=21)
+WG.add_edge("H", "I", weight=19)
+
+nx.draw(WG, with_labels=True, font_weight='bold')
+
+v, path = dg.dijkstra(WG, "A")
+print('Visited: ', v)
+print('Path :', path)

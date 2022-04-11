@@ -3,6 +3,7 @@
 
 import collections
 
+
 class Graph:
   def __init__(self):
     self.nodes = set()
