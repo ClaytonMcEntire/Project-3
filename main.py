@@ -62,7 +62,7 @@ A.add_edge("L", "P")
 ## find exactly the same path? 
 
 # DFS 
-v = dfs.dfs_path(A, "A", "G")
+v = dfs.dfs_path(A, "A", "H")
 print("DFS PATH: " + str(v))
 
 # BFS
@@ -106,13 +106,15 @@ nx.draw(DG, with_labels=True, font_weight='bold')
 
 ## Finds the strongly connected components
 scc=list(nx.strongly_connected_components(DG))
-
+## Finds the strongly connected components using Kosaraju's algorithm
 scc2 = list(nx.kosaraju_strongly_connected_components(DG))
 
-print("The Strongly Connected components are")
+print("\nThe Strongly Connected components are")
 print(str(scc))
-print("The Strongly Connected components are")
+print("\nThe Strongly Connected components using Kosaraju's algorithm are")
 print(str(scc2))
+
+
 ## b) Draw the digraph as a ‘meta graph’ of its strongly connected components in your project
 ##    report; and then
 
@@ -131,15 +133,17 @@ nx.draw(MG, with_labels = True, font_weight='bold')
 ## c) Represent the ‘meta graph’ as a DAG and linearize it in its topological order. 
 
 li = list(reversed(list(nx.topological_sort(MG))))
-print("list2"+str(li))
-
-ans = nx.is_directed_acyclic_graph(MG)
-print("ans"+str(ans))
+print("\nlist2"+str(li))
 
 
-li2 = list(nx.topological_sort(nx.line_graph(MG)))
+## Check to see if Graph is a DAG True/False
+isDAG = nx.is_directed_acyclic_graph(MG)
+print("\nIs Graph a DAG: "+str(isDAG))
 
-print("sort"+str(li2))
+
+topsort = list(nx.topological_sort(nx.line_graph(MG)))
+
+print("\nTopilogical Sort"+str(topsort))
 
 
 # WEIGHTED UNDIRECTED GRAPH 
